@@ -47,5 +47,6 @@ deployment.apps/eks-cloudwatch created
 ```
 
 To check if the forwarder is configured and working correctly you can check the logs for the pod that you just deployed in the `sysdig-agent` namespace. 
+kubectl logs [podname] -n [namespace name]
 
 You should see k8s audit related events in the Sysdig Secure dashboard.
