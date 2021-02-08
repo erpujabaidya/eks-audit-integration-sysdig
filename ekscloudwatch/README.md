@@ -10,7 +10,7 @@ These instructions have been tested with eks.5 on Kubernetes v1.14.
 Your EKS cluster needs be configured to forward audit logs to CloudWatch, which is disabled by default.
 
 1. Open the EKS dashboard from the AWS console
-1. Select your cluster > _Logging_ > _Update_ and enable _Audit_
+2. Select your cluster > _Logging_ > _Update_ and enable _Audit_
 
 ![Audit Enabled](readme_img/audit_logs.png)
 
@@ -19,19 +19,19 @@ Your EKS cluster needs be configured to forward audit logs to CloudWatch, which 
 Your VPC needs an endpoint for the service `com.amazonaws.<your-region>.logs`, accessible from all the EKS security groups.
 
 1. Open the VPC dashboard from the AWS console
-1. Select _Endpoints_ > _Create Endpoints_
-1. Select _Find service by name_, enter `com.amazonaws.<your-region>.logs` and click "Verify".
-1. Under VPC select your cluster's VPC
-1. Select all security groups
+2. Select _Endpoints_ > _Create Endpoints_
+3. Select _Find service by name_, enter `com.amazonaws.<your-region>.logs` and click "Verify".
+4. Under VPC select your cluster's VPC
+5. Select all security groups
 
 ## EKS setup: configure EC2 instance profiles and roles
 
 The EC2 instances that make up your EKS cluster must have the necessary permission to read CW logs. Usually they all use the same IAM Role, so that is the one to configure.
 
 1. Open the EC2 dashboard from the AWS console
-1. Select the AWS EC2 instances that are configured as cluster nodes
-1. Select the associated IAM Role, which should be the same for all nodes
-1. Find the policy `CloudWatchReadOnlyAccess` and attach it
+2. Select the AWS EC2 instances that are configured as cluster nodes
+3. Select the associated IAM Role, which should be the same for all nodes
+4. Find the policy `CloudWatchReadOnlyAccess` and attach it
 
 ![Permissions](readme_img/attach_permissions.png)
 
@@ -50,3 +50,7 @@ To check if the forwarder is configured and working correctly you can check the 
 kubectl logs [podname] -n [namespace name]
 
 You should see k8s audit related events in the Sysdig Secure dashboard.
+
+
+# Author
+Puja Baidya
