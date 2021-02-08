@@ -25,7 +25,7 @@ Your VPC needs an endpoint for the service `com.amazonaws.<your-region>.logs`, a
 5. Select all security groups
 
 
-![Permissions](C:/Users/M1057631/Pictures/Screenshots/Screenshot (139).png)
+![Permissions](readme_img/Screenshot (139).png)
 
 ## EKS setup: configure EC2 instance profiles and roles
 
